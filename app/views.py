@@ -48,7 +48,7 @@ class LikeBosishQismi(APIView):
         
         })
 
-class LikeBosish(APIView):
+class LikeBosishCreate(APIView):
     def post(self, request):
         try:
             likes_or_dislikes = LikeBosish.objects.filter(author_id=request.data.get("author"))

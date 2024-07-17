@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from app.views import DarsViewSet, KursViewSet, IzohViewSet, UserRegisterView, LikeBosishQismi , Email,LikeBosish
+from app.views import DarsViewSet, KursViewSet, IzohViewSet, UserRegisterView, LikeBosishQismi , Email,LikeBosishCreate
 from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView, SpectacularRedocView
 from rest_framework import routers
 from django.conf import settings
@@ -36,7 +36,7 @@ urlpatterns = [
     path('api/schema/swagger-ui/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),  
     path('api/schema/redoc/', SpectacularRedocView.as_view(url_name='schema'), name='redoc'),
     path('dars/<int:pk>/like/', LikeBosishQismi.as_view()),
-    path('dars/like/create/',LikeBosish.as_view()),
+    path('dars/like/create/',LikeBosishCreate.as_view()),
     path('register/', UserRegisterView.as_view(), name='register'),
     path('api/v1/email/', Email.as_view()),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
